@@ -1,11 +1,8 @@
 '''A random walk simulation
-Students: You should start with your own code for
-CS 1400 Random walk. Use htis code provided as a starting points
-only of you don't have your own code.
+Demonstrates 3 different random walks and prints out stats of each walk
+as well as a turtle graphic demonstration
 
-You are also welcome to start from scratch if you wish.
-A reminder NOT to download solutions you may find on the internet
-and submit them as your own.
+by Sam Oblad
 '''
 
 import sys
