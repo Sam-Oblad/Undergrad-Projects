@@ -7,6 +7,8 @@ economy has produced 66 million private-sector jobs. So what`s the jobs score? R
 24 million,Democrats 42 (million).”This will be determined by using a data file
 given from the Bureau of Labor Servicesto identify exact job creation amounts and
 under whos leadership those creations occured.
+
+By Sam Oblad
 """
 
 import csv

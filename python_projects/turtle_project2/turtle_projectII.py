@@ -6,6 +6,8 @@ Course: CS1400-X02
 
 A simple turtle program that creates a random pattern with stars, squares,
 and triangles that change in size shape and color.
+
+By Sam Oblad
 '''
 
 import turtle

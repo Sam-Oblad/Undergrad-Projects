@@ -1,5 +1,8 @@
 '''A simple runner for testing and to demonstrate how to import a module from a
-local directory.
+local directory. Models the overall growth of rabbit population according to
+given parameters
+
+By Sam Oblad
 '''
 
 import rabbits

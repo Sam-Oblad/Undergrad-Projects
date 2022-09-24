@@ -5,6 +5,8 @@ with the books. Then sorts these entries by lastname first name, and then book t
 Then the program asks for input of which person, a different operator ('<, >, =') and
 then an integerreferring to the ratings between -5 to 5. The program returns the
 appropriate searched for criteria.
+
+By Sam Oblad
 """
 def main():
     """program starts here"""
