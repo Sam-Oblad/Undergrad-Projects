@@ -16,7 +16,7 @@ def filter_data(file):
     filtered_points = filtered_points.astype('int32')
     return filtered_points
 
-def analyze(file: np.array):
+def analyze(file):
     rawdata = np.loadtxt(file, dtype = np.int32)
     smoothdata = filter_data(file)
     pulses = np.array([])
