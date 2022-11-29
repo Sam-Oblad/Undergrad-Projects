@@ -22,6 +22,6 @@ flags_seq.out
 flags_thread.out
 flags_smp.out
 Each output file must have the following format. Your exact numbers will vary, but must be reasonable.
-\n
-Elapsed time: 10.28958823 \n
+
+Elapsed time: 10.28958823 
 3110197 bytes downloaded
