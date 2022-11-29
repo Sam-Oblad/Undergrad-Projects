@@ -23,8 +23,8 @@ def download_flag(url):
     if not fresp:
         raise Exception(f"Can not download {fname}")
     
-    if not os.path.exists("/Users/samoblad/files/projects/flags"):
-        os.mkdir("/Users/samoblad/files/projects/flags")
+    if not os.path.exists("/Users/samoblad/files/portfolio/python_projects/flags_download/flags"):
+        os.mkdir("/Users/samoblad/files/portfolio/python_projects/flags_download/flags")
 
     with open(f"flags/{fname}", "wb") as wf:
         wf.write(fresp.content)

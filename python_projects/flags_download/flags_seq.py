@@ -21,14 +21,14 @@ def download_flag(url, flag):
     fresp = requests.get(url)
     if not fresp:
         raise Exception(f"Can not download {flag}")
-    if not os.path.exists("/Users/samoblad/files/projects/flags"):
-        os.mkdir("/Users/samoblad/files/projects/flags")
-    os.chdir("/Users/samoblad/files/projects/flags")
+    if not os.path.exists("/Users/samoblad/files/portfolio/python_projects/flags_download/flags"):
+        os.mkdir("/Users/samoblad/files/portfolio/python_projects/flags_download/flags")
+    os.chdir("/Users/samoblad/files/portfolio/python_projects/flags_download/flags")
     fp = open(flag, 'wb')
     fp.write(fresp.content)
     num_bytes = len(fresp.content)
     fp.close()
-    os.chdir("/Users/samoblad/files/projects")
+    os.chdir("/Users/samoblad/files/portfolio/python_projects/flags_download")
     return num_bytes
 
 def download_flags(selected_flags: list):
