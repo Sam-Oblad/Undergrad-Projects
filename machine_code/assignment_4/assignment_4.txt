@@ -1,0 +1,205 @@
+.ORIG x3000
+RESET     ADD R5, R5, #15
+          ADD R5, R5, #15
+          ADD R5, R5, #15
+          ADD R5, R5, #15
+          ADD R5, R5, #15
+          ADD R5, R5, #15
+          ADD R5, R5, #5
+          NOT R5, R5
+          ADD R4, R5, #0
+          lea R0, INPUT
+          PUTS
+          AND R0, R0, #0
+          BR SETR
+CHARE     GETC ;gets char
+          OUT ;echos char to console
+          ADD R5, R4, #0
+          ADD R6, R0, #0
+          ADD R5, R6, R5
+          BRN #2
+          ADD R6, R6, #-16
+          ADD R6, R6, #-16
+          ADD R1, R0, #-10 ;Checks for \n char
+          BRz JUMP
+          
+          STR R6, R2, #0 ;stores char at R2 location
+          ADD R2, R2, #1 ;R2 location += 1
+          AND R6, R6, #0
+          BR CHARE
+
+; The above section gets user input, and translates it into all 
+; uppercase and stores it at location x3100 in memory
+
+JUMP    LEA R1, X00FA ;LOADS INPUT STRING
+        LEA R6, X00F9
+ONE     LEA R2, AABC  ;LOADS STOCK STRING
+1NEXT   LDR R3, R1, #0 
+       BRz 1LAST 
+       LDR R4, R2, #0 
+       NOT R4, R4 
+       ADD R4, R4, #1 
+       ADD R5, R3, R4 
+       BRnp 1DIFF 
+       ADD R1, R1, #1 
+       ADD R2, R2, #1 
+       BR 1NEXT 
+1LAST   LDR R4, R2, #0 
+       BRnp 1DIFF 
+       Lea r0, SCMS
+       BR 1PRINT 
+1DIFF  BR TWO
+1PRINT  Puts 
+       BR RESET
+
+
+TWO    LEA R2, TESI  ;LOADS STOCK STRING
+        AND R1, R1, #0
+        ADD R1, R6, #0
+2NEXT   LDR R3, R1, #0 
+       BRz 2LAST 
+       LDR R4, R2, #0 
+       NOT R4, R4 
+       ADD R4, R4, #1 
+       ADD R5, R3, R4 
+       BRnp 2DIFF 
+       ADD R1, R1, #1 
+       ADD R2, R2, #1 
+       BR 2NEXT 
+2LAST   LDR R4, R2, #0 
+       BRnp 2DIFF 
+       Lea r0, SCMS
+       BR 2PRINT 
+2DIFF  BR THREE
+2PRINT  Puts 
+       BR RESET
+
+THREE   LEA R2, MSBF  ;LOADS STOCK STRING
+        AND R1, R1, #0
+        ADD R1, R6, #0
+3NEXT   LDR R3, R1, #0 
+       BRz 3LAST 
+       LDR R4, R2, #0 
+       NOT R4, R4 
+       ADD R4, R4, #1 
+       ADD R5, R3, R4 
+       BRnp 3DIFF 
+       ADD R1, R1, #1 
+       ADD R2, R2, #1 
+       BR 3NEXT 
+3LAST   LDR R4, R2, #0 
+       BRnp 3DIFF 
+       Lea r0, SCMS
+       BR 3PRINT 
+3DIFF  BR FOUR
+3PRINT  Puts 
+       BR RESET
+
+FOUR     LEA R2, AAPL  ;LOADS STOCK STRING
+        AND R1, R1, #0
+        ADD R1, R6, #0
+4NEXT   LDR R3, R1, #0 
+       BRz 4LAST 
+       LDR R4, R2, #0 
+       NOT R4, R4 
+       ADD R4, R4, #1 
+       ADD R5, R3, R4 
+       BRnp 4DIFF 
+       ADD R1, R1, #1 
+       ADD R2, R2, #1 
+       BR 4NEXT 
+4LAST   LDR R4, R2, #0 
+       BRnp 4DIFF 
+       Lea r0, NNMS
+       BR 4PRINT 
+4DIFF  BR FIVE
+4PRINT  Puts 
+       BR RESET
+FIVE    LEA R2, MSFT  ;LOADS STOCK STRING
+        AND R1, R1, #0
+        ADD R1, R6, #0
+5NEXT   LDR R3, R1, #0 
+       BRz 5LAST 
+       LDR R4, R2, #0 
+       NOT R4, R4 
+       ADD R4, R4, #1 
+       ADD R5, R3, R4 
+       BRnp 5DIFF 
+       ADD R1, R1, #1 
+       ADD R2, R2, #1 
+       BR 5NEXT 
+5LAST   LDR R4, R2, #0 
+       BRnp 5DIFF 
+       Lea r0, NNMS
+       BR 5PRINT 
+5DIFF  BR SIX
+5PRINT  Puts 
+       BR RESET
+SIX     LEA R2, TESS  ;LOADS STOCK STRING
+        AND R1, R1, #0
+        ADD R1, R6, #0
+6NEXT   LDR R3, R1, #0 
+       BRz 6LAST 
+       LDR R4, R2, #0 
+       NOT R4, R4 
+       ADD R4, R4, #1 
+       ADD R5, R3, R4 
+       BRnp 6DIFF 
+       ADD R1, R1, #1 
+       ADD R2, R2, #1 
+       BR 6NEXT 
+6LAST   LDR R4, R2, #0 
+       BRnp 3DIFF 
+       Lea r0, NNMS
+       BR 6PRINT 
+6DIFF  BR QUIT
+6PRINT  Puts 
+       BR RESET
+
+QUIT    LEA R2, QUITS  ;LOADS STOCK STRING
+        AND R1, R1, #0
+        ADD R1, R6, #0
+QNEXT   LDR R3, R1, #0 
+       BRz QLAST 
+       LDR R4, R2, #0 
+       NOT R4, R4 
+       ADD R4, R4, #1 
+       ADD R5, R3, R4 
+       BRnp QDIFF 
+       ADD R1, R1, #1 
+       ADD R2, R2, #1 
+       BR QNEXT 
+QLAST   LDR R4, R2, #0 
+       BRnp QDIFF 
+       Lea r0, QUITS
+       Puts
+       HALT
+QDIFF  LEA R0, ERROR
+QPRINT  Puts 
+       BR RESET
+SETR   LEA R2, #109
+       AND R0, R0, #0
+       STR R0, R2, #0
+       ADD R2, R2, #1
+       STR R0, R2, #0
+       ADD R2, R2, #1
+       STR R0, R2, #0
+       ADD R2, R2, #1
+       STR R0, R2, #0
+       ADD R2, R2, #1
+       LEA R2, #99
+       BR CHARE
+
+INPUT .STRINGZ "Please enter a stock symbol: "
+ERROR .STRINGZ "Input not valid\n"
+AABC .STRINGZ "AABC"
+AAPL .STRINGZ "AAPL"
+MSBF .STRINGZ "MSBF"
+MSFT .STRINGZ "MSFT"
+TESI .STRINGZ "TESI"
+TESS .STRINGZ "TESS"
+SCMS .STRINGZ "SCM\n"
+NNMS .STRINGZ "NNM\n"
+NSAME .STRINGZ " "
+QUITS .STRINGZ "QUIT"
+.END
