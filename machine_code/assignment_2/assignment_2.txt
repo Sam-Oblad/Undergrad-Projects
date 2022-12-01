@@ -6,7 +6,7 @@ x3003		x0000	NOP
 x3004		x0000	NOP
 x3005		xF020	GETC ;Gets Char
 x3006		xF021	OUT  ;Echos Char to Console
-x3007		x7080	STR R0, R2, #0 ;stores char at R2 location: x3011
+x3007		x7080	STR R0, R2, #0 ;stores char at R2 location: x3050
 x3008		x14A1	ADD R2, R2, #1 ;R2 location += 1
 x3009		x1236	ADD R1, R0, #-10 ;Checks for \n char 
 x300A		x0BFA	BRnp x3005 ;Loops back to x3005 until x3009 returns \n
