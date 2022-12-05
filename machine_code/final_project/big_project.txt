@@ -1,6 +1,7 @@
 .ORIG x3000
-RESET     ADD R5, R5, #15
-          ADD R5, R5, #15
+RESET     AND R5, R5, #0   ; initializes r5 and r4 to convert lowcase
+          ADD R5, R5, #15  ; to uppercase if necessary
+          ADD R5, R5, #15  
           ADD R5, R5, #15
           ADD R5, R5, #15
           ADD R5, R5, #15
@@ -11,34 +12,34 @@ RESET     ADD R5, R5, #15
           lea R0, INPUT
           PUTS
           AND R0, R0, #0
-          BR SETR
+          BR INIT         ; calls to set up, commit user input to memory
 CHARE     GETC ;gets char
           OUT ;echos char to console
           ADD R5, R4, #0
           ADD R3, R0, #0
           ADD R5, R3, R5
-          BRN #2
+          BRN #2 ;if uppercase skip, if lowercase use next 2 lines to convert to upper
           ADD R3, R3, #-16
           ADD R3, R3, #-16
           ADD R1, R0, #-10 ;Checks for \n char
-          BRz ORIGIN
+          BRz ORIGIN         ; if no \n char advance, else, jump to origin to begin comparisons
           STR R3, R2, #0 ;stores char at R2 location
           ADD R2, R2, #1 ;R2 location += 1
           AND R3, R3, #0
           BR CHARE
 
 ; The above section gets user input, and translates it into all 
-; uppercase and stores it at location x31A7 in memory
+; uppercase and stores it starting at location x31A7 in memory
 
 
-ORIGIN AND R3, R3, #0
+ORIGIN AND R3, R3, #0     ;clears r3 and stores memory address from r6
        ADD R3, R6, #0
        AND R6, R6, #0
        ADD R6, R6, #1
-       ADD R1, R3, #0 ;LOADS INPUT STRING
-       BR FIRST
+       ADD R1, R3, #0     ;LOADS INPUT STRING
+       BR FIRST           ;calls first comparision
 
-NEXT   
+NEXT   ; main comparison algorithm
        LDR R3, R1, #0 
        BRz LAST 
        LDR R4, R2, #0 
@@ -51,18 +52,17 @@ NEXT
        BR NEXT 
 LAST   LDR R4, R2, #0 
        BRnp DIFF 
-       
        BR PRINT 
-PRINT  Puts 
+PRINT  Puts                ;If Match: outputs R0 initialized string to console and resets
        BR RESET
-DIFF   ADD R6, R6, #1
-       BR SORT
-       BR RESET
+DIFF   ADD R6, R6, #1      ;If not match: increment R6 by 1,
+       BR SETR1             ; jump back to sort algorithm to compare next string
+
 
 INPUT .STRINGZ "Please enter an LC-3 Command: "
 
-SORT   BR SETR1
-SORT1  AND R5, R5, #0
+    
+SORT  AND R5, R5, #0 ; main sorting algorithm for comparing strings in order
        AND R2, R2, #0
        ADD R5, R5, #2
        ADD R2, R5, #0
@@ -164,7 +164,7 @@ QDIFF  LEA R0, ERROR
 QPRINT  Puts 
        BR RESET
 
-SETR   LEA R2, #255
+INIT   LEA R2, #255
        AND R0, R0, #0
        STR R0, R2, #0
        ADD R2, R2, #1
@@ -179,74 +179,74 @@ SETR   LEA R2, #255
        BR CHARE
 
 SETR1 Lea R1, #242
-      BR SORT1
+      BR SORT
 
-FIRST LEA R2, 0ADD   ;LOADS LEA STRING
+FIRST LEA R2, 0ADD   ;LOADS add STRING
       Lea r0, ADDN
-      BR NEXT
+      BR NEXT ;jumps back to compare input string to loaded string
 
-SECOND LEA R2, 0AND
+SECOND LEA R2, 0AND ;loads and string
       Lea r0, ANDN
        BR NEXT
 
-THIRD LEA R2, 0BR
+THIRD LEA R2, 0BR ;loads br string
       Lea r0, NBR
       BR NEXT
 
-FOURTH  LEA R2, 0JMP
+FOURTH  LEA R2, 0JMP ;loads jmp string
       Lea r0, JMPN
       BR NEXT
 
-FIFTH LEA R2, 0JSR
+FIFTH LEA R2, 0JSR ; loads jsr string
       Lea r0, JSRN
       BR NEXT
 
-SIXTH LEA R2, 0LD
+SIXTH LEA R2, 0LD ; loads ld string
       Lea r0, LDN
       BR NEXT
 
-SEVENTH LEA R2, 0LDI
+SEVENTH LEA R2, 0LDI ; loads ldi string
       Lea r0, LDIN
       BR NEXT
 
-EIGHTH LEA R2, 0LDR
+EIGHTH LEA R2, 0LDR ; loads ldr string
       Lea r0, LDRN
       BR NEXT
 
-NINTH LEA R2, 0LEA
-      Lea r0, LEAN
+NINTH LEA R2, 0LEA ;loads lea string
+      Lea r0, LEAN 
       BR NEXT
 
-TENTH LEA R2, 0NOT
+TENTH LEA R2, 0NOT ;loads not string
       Lea r0, NOTN
       BR NEXT
 
-ELEVEN LEA R2, 0RET
+ELEVEN LEA R2, 0RET ;loads ret string
       Lea r0, RETN
       BR NEXT
 
-TWELVE LEA R2, 0RTI
+TWELVE LEA R2, 0RTI ;loads rti string
       Lea r0, RTIN
       BR NEXT
 
-THIRTEEN LEA R2, 0ST
+THIRTEEN LEA R2, 0ST ;loads st string
       Lea r0, STN
       BR NEXT
 
-FOURTEEN LEA R2, 0STI
+FOURTEEN LEA R2, 0STI ;loads sti string
       Lea r0, STIN
       BR NEXT
 
-FIFTEEN LEA R2, 0STR
+FIFTEEN LEA R2, 0STR ;loads str string
       Lea r0, STRN
       BR NEXT
       
-SIXTEEN LEA R2, 0TRAP
+SIXTEEN LEA R2, 0TRAP ;loads trap string
       Lea r0, TRAPN
       BR NEXT
 
 
-QUIT LEA R2, QUITS
+QUIT LEA R2, QUITS ;loads quit string
       LEA R0, QUITS
       BR QNEXT
 
