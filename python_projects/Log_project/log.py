@@ -5,23 +5,18 @@ from time import sleep
 import math
 numbers = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 letters = [None, "K", "M", "G", "T"]
-count = 1
-correct = 0
 
 def clear(): 
     os.system("clear")
 
-def main_menu():
-    global correct
+def main_menu(count, correct):
     if correct >= 8:
         clear()
         print("\nYou've answered 8 in a row correctly! \nQuitting program . . .")
         quit()
-    display_problem()
+    display_problem(count, correct)
 
-def display_problem():
-    global count
-    global correct
+def display_problem(count, correct):
     print(f"\nQuestion {count}\n")
     answer = create_problem()
     user_input = int(input("\nYour Answer: "))
@@ -30,7 +25,7 @@ def display_problem():
         correct += 1
         print(f"Correct! You have answered {correct} correctly")
         sleep(3.2)
-        main_menu()
+        main_menu(count, correct)
     else:
         count += 1
         correct = 0
@@ -40,7 +35,7 @@ The correct answer was {answer}
 Correct answer streak back to 0""")
         sleep(4)
         clear()
-        main_menu()
+        main_menu(count, correct)
 
 def create_problem():
     number = choice(numbers)
@@ -71,6 +66,6 @@ def create_answer(n, l):
         return answer
 
 def main():
-    main_menu()
+    main_menu(count = 1, correct = 0)
 if __name__ == "__main__":
   main()
