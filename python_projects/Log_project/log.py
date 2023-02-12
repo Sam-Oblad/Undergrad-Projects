@@ -49,21 +49,21 @@ def create_problem():
     return answer
 
 def create_answer(n, l):
-    if l == None:
-        answer = round(math.log(n,2))
-        return answer
-    elif l == "K":
-        answer = round(math.log(n * 1000, 2))
-        return answer
-    elif l == "M":
-        answer = round(math.log(n * 10000, 2))
-        return answer
-    elif l == "G":
-        answer = round(math.log(n * 100000, 2))
-        return answer
-    elif l == "T":
-        answer = round(math.log(n * 1000000, 2))
-        return answer
+  if l == None:
+    answer = round(math.log(n, 2))
+    return answer
+  elif l == "K":
+    answer = round(math.log(n * 1_000, 2))
+    return answer
+  elif l == "M":
+    answer = round(math.log(n * 1_000_000, 2))
+    return answer
+  elif l == "G":
+    answer = round(math.log(n * 1_000_000_000, 2))
+    return answer
+  elif l == "T":
+    answer = round(math.log(n * 1_000_000_000_000, 2))
+    return answer
 
 def main():
     main_menu(count = 1, correct = 0)
