@@ -81,34 +81,34 @@ postfix: 7 9 * 7 + 5 6 * - 3 + 4 -
 answer: 39.0
 
 # Pseudocode
-Evaluate a Postfix Expression
-Initialize a stack.
-If next input is a number:
-Read the next input and push it onto the stack.
-Else:
-Read the next character, which is an operator symbol.
-Use top and pop to get the two numbers off the top of the stack.
-Combine these two numbers with the operation.
-Push the result onto the stack.
-Go to #2 while there is more of the expression to read.
-There should be one element on the stack, which is the result. Return it.
-Infix to Postfix Pseudocode
-Initialize stack to hold operation symbols and parenthesis.
-If the next input is a left parenthesis:
-Read the left parenthesis and push it onto the stack.
-else if the next input is a number or operand:
-Read the operand (or number) and write it to the output.
-else if the next input is an operator:
-while (stack is not empty AND stack's top is not left parenthesis AND stack's top is an operation with equal or higher precedence than the next input symbol):
-Print the stack's top.
-Pop the stack's top.
-Push the next operation symbol onto the stack.
-else:
-Read and discard the next input symbol (should be a right parenthesis).
-Print the top operation and pop it.
-while stack's top is not a left parenthesis:
-Print next symbol on stack and pop stack.
-Pop and discard the last left parenthesis.
-Go to #2 while there is more of the expression to read.
-Print and pop any remaining operations on the stack.
-There should be no remaining left parentheses.
+- Evaluate a Postfix Expression
+- Initialize a stack.
+### If next input is a number:
+- Read the next input and push it onto the stack.
+### Else:
+- Read the next character, which is an operator symbol.
+- Use top and pop to get the two numbers off the top of the stack.
+- Combine these two numbers with the operation.
+- Push the result onto the stack.
+- Go to #2 while there is more of the expression to read.
+- There should be one element on the stack, which is the result. Return it.
+## Infix to Postfix Pseudocode
+- Initialize stack to hold operation symbols and parenthesis.
+### If the next input is a left parenthesis:
+- Read the left parenthesis and push it onto the stack.
+- else if the next input is a number or operand:
+- Read the operand (or number) and write it to the output.
+### else if the next input is an operator:
+-  while (stack is not empty AND stack's top is not left parenthesis AND stack's top is an operation with equal or higher precedence than the next input symbol):
+- Print the stack's top.
+- Pop the stack's top.
+- Push the next operation symbol onto the stack.
+- else:
+- Read and discard the next input symbol (should be a right parenthesis).
+- Print the top operation and pop it.
+- while stack's top is not a left parenthesis:
+- Print next symbol on stack and pop stack.
+- Pop and discard the last left parenthesis.
+- Go to #2 while there is more of the expression to read.
+- Print and pop any remaining operations on the stack.
+- There should be no remaining left parentheses.
