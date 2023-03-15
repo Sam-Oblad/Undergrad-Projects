@@ -1,2 +1,2 @@
-# Project 3: Bits
+# Bits Project:
 - Define a class named Bits that holds a single integer variable. You will use this integer simply as a container of bits. The number of bits you can support depends on the type of integer you use. We will use an unsigned long long, which on most platforms occupies 64 bits. However, DO NOT HARD-CODE the type of integer you use throughout your code. You should be able to change only one line of code for your class to work with a different size integer (see the using statement on the second code line below). The code skeleton below gets you started, and also shows you the interface your class needs to implement. I gave you the code for some of the functions.
