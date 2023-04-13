@@ -30,3 +30,32 @@ information. There are 3 types of payments:
 - 3 = wire transfer (bank_id and account_id)
 
 
+Calculate the totals and output all customer data in this format:
+
+
+### ===========================  
+Order #1, Date: 2020-03-15  
+Amount: $100.23, Paid by Credit card 373975319551257, exp. 12-2023  
+Customer ID #762212:  
+Yolanda McAlarney, ph. 505-136-7715, email: ymcalarney2u@wordpress.com  
+705 Corscot Hill  
+Albuquerque, NM 87190  
+Order Detail:  
+Item 10951: "Syrup - Monin Swiss Choclate", 3 @ 3.00  
+Item 16736: "Wine - Red Cooking", 1 @ 2.00  
+Item 16974: "Pastry - Lemon Danish - Mini", 3 @ 1.19  
+Item 23022: "Beef - Short Ribs", 1 @ 5.00  
+Item 26461: "Bread - Crumbs Bulk", 1 @ 3.00  
+Item 26860: "Waffle Stix", 2 @ 2.99  
+Item 27515: "Longos - Burritos", 2 @ 4.00  
+Item 29286: "Lemonade - Strawberry 591 Ml", 2 @ 2.25  
+Item 32641: "Pie Filling - Cherry", 3 @ 0.89  
+Item 39096: "Oil - Peanut", 1 @ 0.95  
+Item 51822: "Pasta - Rotini Colour Dry", 3 @ 1.19  
+Item 57544: "Peach - Halves", 1 @ 0.79  
+Item 63725: "Black Currants", 3 @ 0.79  
+Item 64007: "Juice - Propel Sport", 2 @ 1.99  
+Item 64612: "Pie Shells 10", 2 @ 7.00  
+Item 75536: "Quail - Whole Boneless", 2 @ 8.79  
+Item 79758: "Beef Flat Iron Steak", 2 @ 5.49  
+Item 80145: "Bread - Country Roll", 1 @ 2.29  
