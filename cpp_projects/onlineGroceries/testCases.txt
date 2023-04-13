@@ -1,0 +1,91 @@
+My Test cases:
+
+1)
+There are 300 customers
+There are 198 items
+Please enter a customer number: 
+1
+ID not found
+
+2)
+There are 300 customers
+There are 198 items
+Please enter a customer number: 
+768030
+Enter a item number to purchase: 
+1
+ID not found, Please try again or hit '0' to quit: 
+Enter a item number to purchase: 
+^c
+
+3)
+There are 300 customers
+There are 198 items
+Please enter a customer number: 
+768030
+Enter a item number to purchase: 
+48704
+Item: Beans - French Price: $1.05
+Enter a item number to purchase: 
+2
+ID not found, Please try again or hit '0' to quit: 
+Enter a item number to purchase: 
+16973
+Item: Bread - Sticks Thin Plain Price: $1.25
+Enter a item number to purchase: 
+0
+Number of items purchase: 2
+Total Price: $2.30
+
+4)
+There are 300 customers
+There are 198 items
+Please enter a customer number: 
+201895
+Enter a item number to purchase: 
+2
+ID not found, Please try again or hit '0' to quit: 
+Enter a item number to purchase: 
+68389
+Item: Basil - Fresh Price: $2.89
+Enter a item number to purchase: 
+68389
+Item: Basil - Fresh Price: $2.89
+Enter a item number to purchase: 
+68389
+Item: Basil - Fresh Price: $2.89
+Enter a item number to purchase: 
+68389
+Item: Basil - Fresh Price: $2.89
+Enter a item number to purchase: 
+68389
+Item: Basil - Fresh Price: $2.89
+Enter a item number to purchase: 
+68389
+Item: Basil - Fresh Price: $2.89
+Enter a item number to purchase: 
+1
+ID not found, Please try again or hit '0' to quit: 
+Enter a item number to purchase: 
+0
+Number of items purchase: 6
+Total Price: $17.34
+
+5)
+There are 300 customers
+There are 198 items
+Please enter a customer number: 
+539611
+Enter a item number to purchase: 
+23523
+Item: Beef - Rib Roast Capless Price: $7
+Enter a item number to purchase: 
+23523
+Item: Beef - Rib Roast Capless Price: $7
+Enter a item number to purchase: 
+23523
+Item: Beef - Rib Roast Capless Price: $7
+Enter a item number to purchase: 
+0
+Number of items purchase: 3
+Total Price: $21.00
