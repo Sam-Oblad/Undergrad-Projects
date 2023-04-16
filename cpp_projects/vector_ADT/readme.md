@@ -1,5 +1,8 @@
 # Vector
-### In this project I created my own vector ADT using pointers and an array in CPP. Here is the instructions:
+### In this project I created my own vector ADT using pointers and an array in CPP.
+### I started by implementing a basic vector that only holds int values, but eventually I developed a template vector class that could hold many different types.
+
+
 
 Background
 You have been using std::vector for a while now. In this assignment you will implement a simple
@@ -45,4 +48,4 @@ includes front and back as well, since they fail when the size is 0. Six functio
 exceptions. Include an informational message inside the exception object.
 Remember that you will be doing dynamic memory allocation in the copy constructor, copy
 assignment operator and copy assignment operator. The destructor frees the heap memory with
-the delete [] operato
+the delete [] operator
