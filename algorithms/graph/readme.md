@@ -1,6 +1,6 @@
 # Graph ADT
 
-- in this project I implemented my own data structure of a weighted diagraph. 
+- in this project I implemented my own data structure of a weighted digraph. 
 
 ### Methods for my data type:
 
